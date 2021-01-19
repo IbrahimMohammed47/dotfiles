@@ -1,6 +1,9 @@
 #!/bin/bash 
 #depends on: imagemagick, i3lock, scrot
- 
+
+rm /tmp/lockscreen.png > /dev/null
+rm /tmp/locktext.png > /dev/null
+
 IMAGE=/tmp/lockscreen.png
 TEXT=/tmp/locktext.png
 ICON=$HOME/.config/lockIcon.png
