@@ -230,7 +230,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always feh --bg-scale /home/ibrahim/Downloads/adventure-1846482_1920.jpg
 
 # keyboard language switch English/Arabic with Alt+Shift
-exec --no-startup-id setxkbmap -model pc105 -layout us,ara -option grp:alt_shift_toggle
+exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle   # should add -model pc105 ?
 
 # compton makes rofi background transparent, -f for fade effect
 exec compton -f
