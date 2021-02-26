@@ -30,6 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -214,9 +215,8 @@ bindsym $mod+Shift+x exec bash ~/.config/scripts/lock.sh
 bindsym $mod+d exec rofi -show run -config ~/.config/rofi/config
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /home/ibrahim/.config/i3/toggletouchpad.sh # toggle touchpad
 
@@ -227,13 +227,16 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # setting the background
-exec_always feh --bg-scale /home/ibrahim/Downloads/adventure-1846482_1920.jpg
+exec_always feh --bg-scale ~/.config/bg2.jpg
 
-# keyboard language switch English/Arabic with Alt+Shift
-exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle   # should add -model pc105 ?
+# language switch english/arabic with alt+shift
+exec_always --no-startup-id setxkbmap -model pc105 -layout us,ara -option grp:alt_shift_toggle
 
 # compton makes rofi background transparent, -f for fade effect
 exec compton -f
+
+# disabling screen saver 
+exec_always xset s off
 
 # setting startup apps for workspaces 
 assign [class="Firefox"] $ws2
